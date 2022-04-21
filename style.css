@@ -1,0 +1,28 @@
+body {
+    background-color: #313131;
+    color: white;
+    font-family: "Arial";
+}
+
+.content {
+    text-align: center;
+}
+
+#key {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+#count {
+    width: 30px;
+}
+
+#in {
+    font-size: x-large;
+    text-align: center;
+}
+
+#start {
+    width: 75px;
+    height: 35px;
+}
