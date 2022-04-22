@@ -52,7 +52,7 @@ async function play() {
             await sleep(0.01);
             time += 0.01;
             time = Math.round(time * 100) / 100;
-            timeElement.innerHTML = `${time}s`;
+            timeElement.innerHTML = `${fix(time)}s`;
         }
     }
 
