@@ -23,6 +23,16 @@ body {
 }
 
 #start {
+    margin-top: 3px;
+    border-radius: 5px;
     width: 75px;
     height: 35px;
+}
+
+.start {
+    background-color: #00ff00;
+}
+
+.stop {
+    background-color: #ff0000;
 }

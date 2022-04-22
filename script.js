@@ -20,17 +20,20 @@ function clean() {
     timeElement.innerHTML = "0.00s";
     keyElement.innerHTML = "?";
     inputElement.value = "";
+    startButton.classList = "start";
+    startButton.innerHTML = "Start";
 };
 
 async function play() {
+    if (startButton.classList.contains("stop")) { return window.location.reload(); }
     const numbers = numbersCheck.checked;
     const caseSensitive = sensitivityCheck.checked;
     let count = parseInt(countInput.value);
     if (count <= 0) { return alert(`Character count should be bigger than zero.`); }
 
-    clean();
     inputElement.focus();
-    startButton.disabled = true;
+    startButton.classList = "stop";
+    startButton.innerHTML = "Reset";
 
     let time = 0.00;
     let chars = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
@@ -55,6 +58,6 @@ async function play() {
 
     await sleep(0.01); // wait for the displays
     alert(`Total time: ${time}s\n${fix(time / count)} seconds per letter\n${fix(count / time)} letters per second`);
-    startButton.disabled = false;
     startButton.focus();
+    clean();
 }
