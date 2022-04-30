@@ -17,7 +17,7 @@ function fix(number) {
 }
 
 function clean() {
-    timeElement.innerHTML = "0.00s";
+    timeElement.innerHTML = "-5.00s";
     keyElement.innerHTML = "?";
     inputElement.value = "";
     startButton.classList = "start";
@@ -35,11 +35,21 @@ async function play() {
     startButton.classList = "stop";
     startButton.innerHTML = "Reset";
 
-    let time = 0.00;
+    let time = -5.00;
+    async function addTimeMs() {
+        await sleep(0.01);
+        time += 0.01;
+        time = Math.round(time * 100) / 100;
+        timeElement.innerHTML = `${fix(time)}s`;        
+    };
     let chars = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
     if (caseSensitive) { chars += chars.toLowerCase(); }
     if (numbers) { chars += "0123456789"; }
     chars = chars.split("");
+
+    while (time < 0) {
+        await addTimeMs();
+    }
 
     for (let i = 0; i < count; i++) {
         do {
@@ -49,10 +59,7 @@ async function play() {
 
         let convert = caseSensitive ? (s => s) : (s => s.toLowerCase());
         while (convert(char) != convert(inputElement.value.slice(i))) {
-            await sleep(0.01);
-            time += 0.01;
-            time = Math.round(time * 100) / 100;
-            timeElement.innerHTML = `${fix(time)}s`;
+            await addTimeMs()
         }
     }
 
