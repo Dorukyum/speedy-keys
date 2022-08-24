@@ -58,3 +58,13 @@ label {
 .stop {
     background-color: #ff0000;
 }
+
+svg {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+path:hover {
+    fill: grey;
+}
