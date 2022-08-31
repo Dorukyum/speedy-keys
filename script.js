@@ -20,7 +20,7 @@ function clean() {
     timeElement.innerHTML = "-5.00s";
     keyElement.innerHTML = "?";
     inputElement.value = "";
-    startButton.classList = "start";
+    startButton.classList = "button start";
     startButton.innerHTML = "Start";
 };
 
@@ -32,7 +32,7 @@ async function play() {
     if (count <= 0) { return alert(`Character count should be bigger than zero.`); }
 
     inputElement.focus();
-    startButton.classList = "stop";
+    startButton.classList = "button stop";
     startButton.innerHTML = "Reset";
 
     let time = -5.00;
