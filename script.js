@@ -4,9 +4,17 @@ const timeElement = $("time");
 const keyElement = $("key");
 const inputElement = $("in");
 const startButton = $("start");
-const sensitivityCheck = $("sensitivity");
-const numbersCheck = $("numbers");
+
+const sensitivityCheck = $("caseSensitive");
+sensitivityCheck.checked = localStorage.getItem("caseSensitive") === "true";
+const numbersCheck = $("numbersIncluded");
+numbersCheck.checked = localStorage.getItem("numbersIncluded") === "true";
 const countInput = $("count");
+countInput.value = localStorage.getItem("count") || 5;
+
+function saveSetting(target) {
+    localStorage.setItem(target.id, target.id === "count" ? target.value : target.checked);
+}
 
 async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

@@ -14,14 +14,14 @@
 <body>
     <h1>Speedy Keys</h1>
     <h2>How fast can you click keys on your keyboard?</h2>
-    <label for="sensitivity">Case sensitive</label>
-    <input id="sensitivity" type="checkbox">
+    <label for="caseSensitive">Case sensitive</label>
+    <input id="caseSensitive" onchange="saveSetting(this)" type="checkbox">
     <br>
-    <label for="numbers">Include numbers</label>
-    <input id="numbers" type="checkbox">
+    <label for="numbersIncluded">Include numbers</label>
+    <input id="numbersIncluded" onchange="saveSetting(this)" type="checkbox">
     <br>
     <label for="count">Character count</label>
-    <input type="number" id="count" min="0" value="5">
+    <input type="number" onchange="saveSetting(this)" id="count" min="0" value="5">
     <div class="game">
         <h3 id="time">0.00s</h3>
         <p id="key">?</p>
